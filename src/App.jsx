@@ -1,11 +1,15 @@
+import { useState } from "react";
 import CoreConcepts from "./components/CoreConcepts";
 import TabButton from "./components/TabButton";
 import Header from "./components/Header";
 import { CORE_CONCEPTS } from "./data";
 
 function App() {
+  const [selected, setSelected] = useState('Components')
+
   function handleSelect(selectedButton) {
-    console.log(selectedButton)
+    setSelected(selectedButton)
+
   }
   return (
     <div>
@@ -33,7 +37,7 @@ function App() {
               </TabButton>
             )}
           </menu>
-          
+            {selected}
         </section>
       </main>
     </div>
