@@ -1,7 +1,10 @@
 
-function TabButton({children}) {
+function TabButton({children, onSelect}) {
+  
   return (
-    <li><button>{children}</button></li>
+    <li>
+      <button onClick={onSelect}>{children}</button>
+    </li>
   )
 }
 

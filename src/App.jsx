@@ -4,6 +4,9 @@ import Header from "./components/Header";
 import { CORE_CONCEPTS } from "./data";
 
 function App() {
+  function handleSelect(selectedButton) {
+    console.log(selectedButton)
+  }
   return (
     <div>
       <Header/>
@@ -24,9 +27,13 @@ function App() {
           <h2>Examples</h2>
           <menu>
             {CORE_CONCEPTS.map(concept => 
-              <TabButton key={concept.id}>{concept.title}</TabButton>
+              <TabButton 
+                onSelect={() => handleSelect(concept.title)} 
+                key={concept.id}>{concept.title}
+              </TabButton>
             )}
           </menu>
+          
         </section>
       </main>
     </div>
