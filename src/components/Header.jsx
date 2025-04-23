@@ -1,3 +1,5 @@
+import reactImg from '../assets/images/react-core-concepts.png'
+
 const buzzWords = ['Fundamental', 'Core', 'Crucial']
 
 function randomBuzz(max) {
@@ -9,7 +11,7 @@ function randomBuzz(max) {
 function Header() {
   return (
       <header>
-        <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
+        <img src={reactImg} alt="Stylized atom" />
         <h1>React Essentials</h1>
         <p>
           {buzzWords[randomBuzz(buzzWords.length)]} React concepts you will need for almost any app you are
