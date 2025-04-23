@@ -47,6 +47,7 @@ function App() {
           <menu>
             {CORE_CONCEPTS.map(concept => 
               <TabButton 
+                isHighlighted={selected === concept.title.toLowerCase()}
                 onSelect={() => handleSelect(concept.title)} 
                 key={concept.id}>{concept.title}
               </TabButton>

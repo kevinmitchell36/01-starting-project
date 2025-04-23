@@ -1,9 +1,9 @@
 
-function TabButton({children, onSelect}) {
+function TabButton({children, onSelect, isHighlighted}) {
   
   return (
     <li>
-      <button onClick={onSelect}>{children}</button>
+      <button className={isHighlighted ? 'active' : undefined } onClick={onSelect}>{children}</button>
     </li>
   )
 }
