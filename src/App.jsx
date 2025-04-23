@@ -5,12 +5,27 @@ import Header from "./components/Header";
 import { CORE_CONCEPTS, EXAMPLES } from "./data";
 
 function App() {
-  const [selected, setSelected] = useState('components')
+  const [selected, setSelected] = useState()
 
   function handleSelect(selectedButton) {
     let convertToKey = selectedButton.toLowerCase()
     setSelected(convertToKey)
   }
+
+  let tabContent = <p>Please select a topic</p>
+
+  if (selected) {
+    tabContent = <div id="tab-content">
+      <h3>{EXAMPLES[selected].title}</h3>
+      <p>{EXAMPLES[selected].description}</p>
+      <pre>
+        <code>
+          {EXAMPLES[selected].code}
+        </code>
+      </pre>
+    </div>
+  }
+
   return (
     <div>
       <Header/>
@@ -37,15 +52,7 @@ function App() {
               </TabButton>
             )}
           </menu>
-            <div id="tab-content">
-              <h3>{EXAMPLES[selected].title}</h3>
-              <p>{EXAMPLES[selected].description}</p>
-              <pre>
-                <code>
-                  {EXAMPLES[selected].code}
-                </code>
-              </pre>
-            </div>
+            {tabContent}
         </section>
       </main>
     </div>
