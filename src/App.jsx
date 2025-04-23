@@ -2,14 +2,14 @@ import { useState } from "react";
 import CoreConcepts from "./components/CoreConcepts";
 import TabButton from "./components/TabButton";
 import Header from "./components/Header";
-import { CORE_CONCEPTS } from "./data";
+import { CORE_CONCEPTS, EXAMPLES } from "./data";
 
 function App() {
-  const [selected, setSelected] = useState('Components')
+  const [selected, setSelected] = useState('components')
 
   function handleSelect(selectedButton) {
-    setSelected(selectedButton)
-
+    let convertToKey = selectedButton.toLowerCase()
+    setSelected(convertToKey)
   }
   return (
     <div>
@@ -37,7 +37,15 @@ function App() {
               </TabButton>
             )}
           </menu>
-            {selected}
+            <div id="tab-content">
+              <h3>{EXAMPLES[selected].title}</h3>
+              <p>{EXAMPLES[selected].description}</p>
+              <pre>
+                <code>
+                  {EXAMPLES[selected].code}
+                </code>
+              </pre>
+            </div>
         </section>
       </main>
     </div>
