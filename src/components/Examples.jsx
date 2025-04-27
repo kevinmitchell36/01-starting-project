@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { CORE_CONCEPTS, EXAMPLES } from "../data"
 import TabButton from "./TabButton";
+import Section from "./Section";
 
 function Examples() {
   const [selected, setSelected] = useState()
@@ -24,19 +25,18 @@ function Examples() {
       </div>
     }
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section title="Examples" id="examples">
       <menu>
         {CORE_CONCEPTS.map(concept => 
           <TabButton 
             isHighlighted={selected === concept.title.toLowerCase()}
-            onSelect={() => handleSelect(concept.title)} 
+            onClick={() => handleSelect(concept.title)} 
             key={concept.id}>{concept.title}
           </TabButton>
         )}
       </menu>
         {tabContent}
-    </section>
+    </Section>
   )
 }
 
