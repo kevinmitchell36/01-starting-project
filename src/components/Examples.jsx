@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { CORE_CONCEPTS, EXAMPLES } from "../data"
 import TabButton from "./TabButton";
+import Tabs from "./Tabs";
 import Section from "./Section";
 
 function Examples() {
@@ -26,7 +27,8 @@ function Examples() {
     }
   return (
     <Section title="Examples" id="examples">
-      <menu>
+      <Tabs buttons={
+        <>
         {CORE_CONCEPTS.map(concept => 
           <TabButton 
             isHighlighted={selected === concept.title.toLowerCase()}
@@ -34,8 +36,11 @@ function Examples() {
             key={concept.id}>{concept.title}
           </TabButton>
         )}
-      </menu>
-        {tabContent}
+        </>
+      }>
+      {tabContent}
+      </Tabs>
+        
     </Section>
   )
 }
