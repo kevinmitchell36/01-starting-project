@@ -27,17 +27,18 @@ function Examples() {
     }
   return (
     <Section title="Examples" id="examples">
-      <Tabs buttons={
-        <>
-        {CORE_CONCEPTS.map(concept => 
-          <TabButton 
-            isHighlighted={selected === concept.title.toLowerCase()}
-            onClick={() => handleSelect(concept.title)} 
-            key={concept.id}>{concept.title}
-          </TabButton>
-        )}
-        </>
-      }>
+      <Tabs 
+        buttons={
+          <>
+          {CORE_CONCEPTS.map(concept => 
+            <TabButton 
+              isHighlighted={selected === concept.title.toLowerCase()}
+              onClick={() => handleSelect(concept.title)} 
+              key={concept.id}>{concept.title}
+            </TabButton>
+          )}
+          </>
+        }>
       {tabContent}
       </Tabs>
         
